@@ -1,7 +1,7 @@
 /give @a minecraft:item_frame 1 0 {display:{Name:"Equipment Housing",Lore:["Used to deploy various types of Equipment"]},Unbreakable:1,HideFlags:31,CanDestroy:["minecraft:glass_pane"],AttributeModifiers:[{AttributeName:"generic.attackDamage",Name:"generic.attackDamage",Amount:-100,Operation:1,UUIDMost:67245,UUIDLeast:165914},{AttributeName:"generic.movementSpeed",Name:"generic.movementSpeed",Amount:-0.5,Operation:1,UUIDMost:84286,UUIDLeast:163230}],CanPlaceOn:["minecraft:planks","minecraft:clay","minecraft:fence","minecraft:glass_pane","minecraft:quartz_block"]}
 /give @a minecraft:record_chirp 1 0 {Unbreakable:1,HideFlags:31,display:{Lore:["Use to blast through the following:","- reinforced walls","- barricades","- windows","- clay walls","- wooden walls"],Name:"Thermite Charge"},AttributeModifiers:[{AttributeName:"generic.movementSpeed",Name:"generic.movementSpeed",Amount:-0.5,Operation:1,UUIDMost:56204,UUIDLeast:166148},{AttributeName:"generic.attackDamage",Name:"generic.attackDamage",Amount:-100,Operation:1,UUIDMost:10405,UUIDLeast:115810}]}
 
-#SCOREBOARD COMMANDS
+      #SCOREBOARD COMMANDS
 
 /scoreboard players add @e[type=item_frame] ltcharge 0 {Item:{id:minecraft:record_stal}}
 /scoreboard players add @e[type=item_frame] ltcharge 1 {Item:{id:minecraft:record_stal},ItemRotation:1b}
@@ -11,3 +11,27 @@
 /scoreboard players set @e[type=item_frame,score_bce_min=20] bce 0 {Item:{id:minecraft:record_stal}}
 /scoreboard players add @e[type=item_frame] bce 1 {Item:{id:minecraft:record_stal}}
 
+      #VISUAL COMMANDS
+
+  #sets rotation to either up+down or sideways 
+/entitydata @e[score_ltcharge_min=1] {ItemRotation:2b,Invulnerable:1b}
+/entitydata @e[score_ltcharge=0] {ItemRotation:0b}
+
+  #sounds (I know its a lot)
+/execute @e[type=item_frame,score_ltcharge_min=1,score_ltcharge=1] ~ ~ ~ /playsound ui.button.click voice @a
+/execute @e[type=item_frame,score_ltcharge_min=20,score_ltcharge=20] ~ ~ ~ /playsound ui.button.click voice @a
+/execute @e[type=item_frame,score_ltcharge_min=20,score_ltcharge=20] ~ ~ ~ /playsound item.shield.break voice @a
+/execute @e[type=item_frame,score_ltcharge_min=20,score_ltcharge=20] ~ ~ ~ /playsound entity.splash_potion.break voice @a
+/execute @e[type=item_frame,score_ltcharge_min=20,score_ltcharge=20] ~ ~ ~ /playsound entity.firework.large_blast voice @a
+/execute @e[type=item_frame,score_ltcharge_min=20,score_ltcharge=20] ~ ~ ~ /playsound entity.firework.blast voice @a
+/execute @e[type=item_frame,score_ltcharge_min=20,score_ltcharge=20] ~ ~ ~ /playsound entity.firework.large_blast_far voice @a
+/execute @e[type=item_frame,score_ltcharge_min=1,score_ltcharge=1] ~ ~ ~ /playsound entity.generic.eat voice @a
+
+  #particles
+/execute @e[type=item_frame,score_ltcharge_min=20] ~ ~ ~ /particle flame ~ ~ ~ 0 0.2 0 0.01 1
+/execute @e[type=item_frame,score_ltcharge_min=20] ~ ~ ~ /particle largesmoke ~ ~ ~ 0 0 0 0.6 100
+/execute @e[type=item_frame,score_ltcharge_min=20] ~ ~ ~ /particle explode ~ ~ ~ 0 0 0 0.1 100
+/execute @e[type=item_frame,score_ltcharge_min=20] ~ ~ ~ /particle townaura ~ ~ ~ 1 0.5 1 0.1 1000
+/execute @e[type=item_frame,score_xocharge_min=60] ~ ~ ~ /particle townaura ~ ~ ~ 1 0.5 1 0.1 1000
+    #this one works for all types of breaching charges
+/execute @e[type=item_frame,score_bce_min=1,score_bce=1] ~ ~ ~ /particle fireworksSpark ~ ~ ~ 0.01 0 0.01 0 1
