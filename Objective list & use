@@ -1,0 +1,14 @@
+List of all objectives & their uses
+
+  apmine: [dummy] used for the booby traps, used for tracking the thrown tnt item as well as tracking the armor stand's progress in the detonation sequence
+  ltcharge: [dummy] used for the normal breaching charges, tracks armor stand's progress in detonation sequence
+  sg: [dummy] used for smoke grenades, tracks the xp entity dropped by xp bottles as well and times the production of smoke by the armor stand
+  bce: [dummy] used just to do a particle effect on all types of breaching charges before the detonation sequence starts
+  timealive: [dummy] general command, used for several things such as making sure the barricade tool doesnt move after it finds a piston to sit on top of
+  facing: [dummy] another general command, primarily used for breaching charges. tracks which way something is facing
+  health: [heath] unused for now
+  rinf: [dummy] used to track reinforcements' progress in reinforcement sequence
+  xocharge: [dummy] used for the anti-reinforcement charges (exothermic charges / thermite charges), tracks the item frame's progress in the detonation sequence
+  kbt: [dummy] tracks the time a barricade tool has been alive (so it can be given back to the player that threw it in case he misplaces it / throws it outside)
+  jager: [dummy] for the active defence system / grenade interceptor, tracks how many grenades have been intercepted
+  brcd: [dummy] for barricade tool, determines if its destroying or placing a barricade as well as tracks its progress in the barricade sequence
