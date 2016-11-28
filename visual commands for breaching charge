@@ -16,5 +16,7 @@
 /execute @e[type=item_frame,score_ltcharge_min=20] ~ ~ ~ /particle flame ~ ~ ~ 0 0.2 0 0.01 1
 /execute @e[type=item_frame,score_ltcharge_min=20] ~ ~ ~ /particle largesmoke ~ ~ ~ 0 0 0 0.6 100
 /execute @e[type=item_frame,score_ltcharge_min=20] ~ ~ ~ /particle explode ~ ~ ~ 0 0 0 0.1 100
-    #this one works for all types of breaching charges
 /execute @e[type=item_frame,score_ltcharge_min=20] ~ ~ ~ /particle townaura ~ ~ ~ 1 0.5 1 0.1 1000
+/execute @e[type=item_frame,score_xocharge_min=60] ~ ~ ~ /particle townaura ~ ~ ~ 1 0.5 1 0.1 1000
+    #this one works for all types of breaching charges
+/execute @e[type=item_frame,score_bce_min=1,score_bce=1] ~ ~ ~ /particle fireworksSpark ~ ~ ~ 0.01 0 0.01 0 1
