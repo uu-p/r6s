@@ -1,0 +1,93 @@
+        #SCOREBOARD COMMANDS
+
+/scoreboard players set @e[type=item_frame] xocharge 1 {Item:{id:minecraft:record_chirp},ItemRotation:1b}
+/scoreboard players add @e[type=item_frame] xocharge 0 {Item:{id:minecraft:record_chirp}}
+/scoreboard players add @e[type=item_frame] xocharge 1 {Item:{id:minecraft:record_chirp},ItemRotation:2b}
+
+/scoreboard players add @e[type=item_frame] bce 1 {Item:{id:minecraft:record_chirp}}
+/scoreboard players set @e[type=item_frame,score_bce_min=20] bce 0 {Item:{id:minecraft:record_chirp}}
+
+        #VISUAL COMMANDS
+        
+  #control rotation
+/entitydata @e[score_xocharge_min=1] {ItemRotation:2b,Invulnerable:1b}
+/entitydata @e[score_xocharge=0] {ItemRotation:0b}
+
+  #sounds
+/execute @e[type=item_frame,score_xocharge_min=1,score_xocharge=1] ~ ~ ~ /playsound entity.generic.burn voice @a
+/execute @e[type=item_frame,score_xocharge_min=1,score_xocharge=1] ~ ~ ~ /playsound ui.button.click voice @a
+/execute @e[type=item_frame,score_xocharge_min=20,score_xocharge=20] ~ ~ ~ /playsound ui.button.click voice @a
+/execute @e[type=item_frame,score_xocharge_min=40,score_xocharge=40] ~ ~ ~ /playsound ui.button.click voice @a
+/execute @e[type=item_frame,score_xocharge_min=60,score_xocharge=60] ~ ~ ~ /playsound item.shield.break voice @a
+/execute @e[type=item_frame,score_xocharge_min=60,score_xocharge=60] ~ ~ ~ /playsound entity.splash_potion.break voice @a
+/execute @e[type=item_frame,score_xocharge_min=60,score_xocharge=60] ~ ~ ~ /playsound entity.lightning.impact voice @a
+
+  #particles
+/execute @e[type=item_frame,score_xocharge_min=1] ~ ~ ~ /particle flame ~ ~ ~ 0 0.2 0 0.01 1
+/execute @e[type=item_frame,score_xocharge_min=60] ~ ~ ~ /particle cloud ~ ~ ~ 0 0 0 0.6 100
+/execute @e[type=item_frame,score_xocharge_min=60] ~ ~ ~ /particle smoke ~ ~ ~ 0 0 0 0.1 100
+/execute @e[type=item_frame,score_xocharge_min=60] ~ ~ ~ /particle townaura ~ ~ ~ 1 0.5 1 0.1 1000
+
+        #KEY COMMANDS
+
+  #destroy after it explodes
+/kill @e[type=item_frame,score_xocharge_min=61]
+  
+  #hurt nearby players
+/execute @e[type=item_frame,score_xocharge_min=60] ~ ~ ~ /effect @e[r=3] minecraft:instant_damage 1 1 true
+
+  #destroy these materials
+/execute @e[type=item_frame,score_facing=0,score_xocharge_min=60,score_xocharge=60] ~ ~ ~ /fill ~ ~ ~-1 ~ ~-1 ~-1 air 0 replace quartz_block
+/execute @e[type=item_frame,score_facing_min=1,score_facing=1,score_xocharge_min=60,score_xocharge=60] ~ ~ ~ /fill ~1 ~ ~ ~1 ~-1 ~ air 0 replace quartz_block
+/execute @e[type=item_frame,score_facing_min=2,score_facing=2,score_xocharge_min=60,score_xocharge=60] ~ ~ ~ /fill ~ ~ ~1 ~ ~-1 ~1 air 0 replace quartz_block
+/execute @e[type=item_frame,score_facing_min=3,score_facing=3,score_xocharge_min=60,score_xocharge=60] ~ ~ ~ /fill ~-1 ~ ~-1 ~-1 ~-1 ~ air 0 replace quartz_block
+
+/execute @e[type=item_frame,score_facing=0,score_xocharge_min=60,score_xocharge=60] ~ ~ ~ /fill ~ ~ ~-1 ~ ~-1 ~-1 air 0 replace glass_pane
+/execute @e[type=item_frame,score_facing_min=1,score_facing=1,score_xocharge_min=60,score_xocharge=60] ~ ~ ~ /fill ~1 ~ ~ ~1 ~-1 ~ air 0 replace glass_pane
+/execute @e[type=item_frame,score_facing_min=2,score_facing=2,score_xocharge_min=60,score_xocharge=60] ~ ~ ~ /fill ~ ~ ~1 ~ ~-1 ~1 air 0 replace glass_pane
+/execute @e[type=item_frame,score_facing_min=3,score_facing=3,score_xocharge_min=60,score_xocharge=60] ~ ~ ~ /fill ~-1 ~ ~-1 ~-1 ~-1 ~ air 0 replace glass_pane
+
+/execute @e[type=item_frame,score_facing=0,score_xocharge_min=60,score_xocharge=60] ~ ~ ~ /fill ~ ~ ~-1 ~ ~-1 ~-1 air 0 replace clay
+/execute @e[type=item_frame,score_facing_min=1,score_facing=1,score_xocharge_min=60,score_xocharge=60] ~ ~ ~ /fill ~1 ~ ~ ~1 ~-1 ~ air 0 replace clay
+/execute @e[type=item_frame,score_facing_min=2,score_facing=2,score_xocharge_min=60,score_xocharge=60] ~ ~ ~ /fill ~ ~ ~1 ~ ~-1 ~1 air 0 replace clay
+/execute @e[type=item_frame,score_facing_min=3,score_facing=3,score_xocharge_min=60,score_xocharge=60] ~ ~ ~ /fill ~-1 ~ ~-1 ~-1 ~-1 ~ air 0 replace clay
+
+/execute @e[type=item_frame,score_facing=0,score_xocharge_min=60,score_xocharge=60] ~ ~ ~ /fill ~ ~ ~-1 ~ ~-1 ~-1 air 0 replace planks
+/execute @e[type=item_frame,score_facing_min=1,score_facing=1,score_xocharge_min=60,score_xocharge=60] ~ ~ ~ /fill ~1 ~ ~ ~1 ~-1 ~ air 0 replace planks
+/execute @e[type=item_frame,score_facing_min=2,score_facing=2,score_xocharge_min=60,score_xocharge=60] ~ ~ ~ /fill ~ ~ ~1 ~ ~-1 ~1 air 0 replace planks
+/execute @e[type=item_frame,score_facing_min=3,score_facing=3,score_xocharge_min=60,score_xocharge=60] ~ ~ ~ /fill ~-1 ~ ~-1 ~-1 ~-1 ~ air 0 replace planks
+
+/execute @e[type=item_frame,score_facing=0,score_xocharge_min=60,score_xocharge=60] ~ ~ ~ /fill ~ ~ ~-1 ~ ~-1 ~-1 air 0 replace fence
+/execute @e[type=item_frame,score_facing_min=1,score_facing=1,score_xocharge_min=60,score_xocharge=60] ~ ~ ~ /fill ~1 ~ ~ ~1 ~-1 ~ air 0 replace fence
+/execute @e[type=item_frame,score_facing_min=2,score_facing=2,score_xocharge_min=60,score_xocharge=60] ~ ~ ~ /fill ~ ~ ~1 ~ ~-1 ~1 air 0 replace fence
+/execute @e[type=item_frame,score_facing_min=3,score_facing=3,score_xocharge_min=60,score_xocharge=60] ~ ~ ~ /fill ~-1 ~ ~-1 ~-1 ~-1 ~ air 0 replace fence
+
+/execute @e[type=item_frame,score_facing=0,score_xocharge_min=60,score_xocharge=60] ~ ~ ~ /fill ~ ~ ~-1 ~ ~-1 ~-1 air 0 replace spruce_stairs
+/execute @e[type=item_frame,score_facing_min=1,score_facing=1,score_xocharge_min=60,score_xocharge=60] ~ ~ ~ /fill ~1 ~ ~ ~1 ~-1 ~ air 0 replace spruce_stairs
+/execute @e[type=item_frame,score_facing_min=2,score_facing=2,score_xocharge_min=60,score_xocharge=60] ~ ~ ~ /fill ~ ~ ~1 ~ ~-1 ~1 air 0 replace spruce_stairs
+/execute @e[type=item_frame,score_facing_min=3,score_facing=3,score_xocharge_min=60,score_xocharge=60] ~ ~ ~ /fill ~-1 ~ ~-1 ~-1 ~-1 ~ air 0 replace spruce_stairs
+
+/execute @e[type=item_frame,score_facing=0,score_xocharge_min=60,score_xocharge=60] ~ ~ ~ /fill ~ ~ ~-1 ~ ~-1 ~-1 air 0 replace birch_stairs
+/execute @e[type=item_frame,score_facing_min=1,score_facing=1,score_xocharge_min=60,score_xocharge=60] ~ ~ ~ /fill ~1 ~ ~ ~1 ~-1 ~ air 0 replace birch_stairs
+/execute @e[type=item_frame,score_facing_min=2,score_facing=2,score_xocharge_min=60,score_xocharge=60] ~ ~ ~ /fill ~ ~ ~1 ~ ~-1 ~1 air 0 replace birch_stairs
+/execute @e[type=item_frame,score_facing_min=3,score_facing=3,score_xocharge_min=60,score_xocharge=60] ~ ~ ~ /fill ~-1 ~ ~-1 ~-1 ~-1 ~ air 0 replace birch_stairs
+
+/execute @e[type=item_frame,score_facing=0,score_xocharge_min=60,score_xocharge=60] ~ ~ ~ /fill ~ ~ ~-1 ~ ~-1 ~-1 air 0 replace oak_stairs
+/execute @e[type=item_frame,score_facing_min=1,score_facing=1,score_xocharge_min=60,score_xocharge=60] ~ ~ ~ /fill ~1 ~ ~ ~1 ~-1 ~ air 0 replace oak_stairs
+/execute @e[type=item_frame,score_facing_min=2,score_facing=2,score_xocharge_min=60,score_xocharge=60] ~ ~ ~ /fill ~ ~ ~1 ~ ~-1 ~1 air 0 replace oak_stairs
+/execute @e[type=item_frame,score_facing_min=3,score_facing=3,score_xocharge_min=60,score_xocharge=60] ~ ~ ~ /fill ~-1 ~ ~-1 ~-1 ~-1 ~ air 0 replace oak_stairs
+
+/execute @e[type=item_frame,score_facing=0,score_xocharge_min=60,score_xocharge=60] ~ ~ ~ /fill ~ ~ ~-1 ~ ~-1 ~-1 air 0 replace dark_oak_stairs
+/execute @e[type=item_frame,score_facing_min=1,score_facing=1,score_xocharge_min=60,score_xocharge=60] ~ ~ ~ /fill ~1 ~ ~ ~1 ~-1 ~ air 0 replace dark_oak_stairs
+/execute @e[type=item_frame,score_facing_min=2,score_facing=2,score_xocharge_min=60,score_xocharge=60] ~ ~ ~ /fill ~ ~ ~1 ~ ~-1 ~1 air 0 replace dark_oak_stairs
+/execute @e[type=item_frame,score_facing_min=3,score_facing=3,score_xocharge_min=60,score_xocharge=60] ~ ~ ~ /fill ~-1 ~ ~-1 ~-1 ~-1 ~ air 0 replace dark_oak_stairs
+
+/execute @e[type=item_frame,score_facing=0,score_xocharge_min=60,score_xocharge=60] ~ ~ ~ /fill ~ ~ ~-1 ~ ~-1 ~-1 air 0 replace jungle_stairs
+/execute @e[type=item_frame,score_facing_min=1,score_facing=1,score_xocharge_min=60,score_xocharge=60] ~ ~ ~ /fill ~1 ~ ~ ~1 ~-1 ~ air 0 replace jungle_stairs
+/execute @e[type=item_frame,score_facing_min=2,score_facing=2,score_xocharge_min=60,score_xocharge=60] ~ ~ ~ /fill ~ ~ ~1 ~ ~-1 ~1 air 0 replace jungle_stairs
+/execute @e[type=item_frame,score_facing_min=3,score_facing=3,score_xocharge_min=60,score_xocharge=60] ~ ~ ~ /fill ~-1 ~ ~-1 ~-1 ~-1 ~ air 0 replace jungle_stairs
+
+/execute @e[type=item_frame,score_facing=0,score_xocharge_min=60,score_xocharge=60] ~ ~ ~ /fill ~ ~ ~-1 ~ ~-1 ~-1 air 0 replace acacia_stairs
+/execute @e[type=item_frame,score_facing_min=1,score_facing=1,score_xocharge_min=60,score_xocharge=60] ~ ~ ~ /fill ~1 ~ ~ ~1 ~-1 ~ air 0 replace acacia_stairs
+/execute @e[type=item_frame,score_facing_min=2,score_facing=2,score_xocharge_min=60,score_xocharge=60] ~ ~ ~ /fill ~ ~ ~1 ~ ~-1 ~1 air 0 replace acacia_stairs
+/execute @e[type=item_frame,score_facing_min=3,score_facing=3,score_xocharge_min=60,score_xocharge=60] ~ ~ ~ /fill ~-1 ~ ~-1 ~-1 ~-1 ~ air 0 replace acacia_stairs
