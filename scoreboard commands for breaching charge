@@ -1,7 +1,0 @@
-/scoreboard players add @e[type=item_frame] ltcharge 0 {Item:{id:minecraft:record_stal}}
-/scoreboard players add @e[type=item_frame] ltcharge 1 {Item:{id:minecraft:record_stal},ItemRotation:1b}
-/scoreboard players add @e[type=item_frame] ltcharge 1 {Item:{id:minecraft:record_stal},ItemRotation:2b}
-
-  #repeating clock
-/scoreboard players set @e[type=item_frame,score_bce_min=20] bce 0 {Item:{id:minecraft:record_stal}}
-/scoreboard players add @e[type=item_frame] bce 1 {Item:{id:minecraft:record_stal}}
