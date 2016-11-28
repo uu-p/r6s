@@ -1,0 +1,35 @@
+  #determines direction it's facing (works for all type of breaching charges)
+/scoreboard players set @e[type=item_frame] facing 0 {Facing:0b}
+/scoreboard players set @e[type=item_frame] facing 1 {Facing:1b}
+/scoreboard players set @e[type=item_frame] facing 2 {Facing:2b}
+/scoreboard players set @e[type=item_frame] facing 3 {Facing:3b}
+
+  #destroy when their job is done
+/kill @e[type=item_frame,score_ltcharge_min=21]
+
+  #hurt nearby players
+/execute @e[type=item_frame,score_ltcharge_min=20] ~ ~ ~ /effect @e[r=2] minecraft:instant_damage 1 1 true
+
+  #destroy glass
+/execute @e[type=item_frame,score_facing=0,score_ltcharge_min=20,score_ltcharge=20] ~ ~ ~ /fill ~ ~ ~-1 ~ ~-1 ~-1 air 0 replace glass_pane
+/execute @e[type=item_frame,score_facing_min=1,score_facing=1,score_ltcharge_min=20,score_ltcharge=20] ~ ~ ~ /fill ~1 ~ ~ ~1 ~-1 ~ air 0 replace glass_pane
+/execute @e[type=item_frame,score_facing_min=2,score_facing=2,score_ltcharge_min=20,score_ltcharge=20] ~ ~ ~ /fill ~ ~ ~1 ~ ~-1 ~1 air 0 replace glass_pane
+/execute @e[type=item_frame,score_facing_min=3,score_facing=3,score_ltcharge_min=20,score_ltcharge=20] ~ ~ ~ /fill ~-1 ~ ~-1 ~-1 ~-1 ~ air 0 replace glass_pane
+
+  #destroy clay
+/execute @e[type=item_frame,score_facing_min=3,score_facing=3,score_ltcharge_min=20,score_ltcharge=20] ~ ~ ~ /fill ~-1 ~ ~-1 ~-1 ~-1 ~ air 0 replace clay
+/execute @e[type=item_frame,score_facing_min=2,score_facing=2,score_ltcharge_min=20,score_ltcharge=20] ~ ~ ~ /fill ~ ~ ~1 ~ ~-1 ~1 air 0 replace clay
+/execute @e[type=item_frame,score_facing_min=1,score_facing=1,score_ltcharge_min=20,score_ltcharge=20] ~ ~ ~ /fill ~1 ~ ~ ~1 ~-1 ~ air 0 replace clay
+/execute @e[type=item_frame,score_facing=0,score_ltcharge_min=20,score_ltcharge=20] ~ ~ ~ /fill ~ ~ ~-1 ~ ~-1 ~-1 air 0 replace clay
+
+  #destroy wooden planks
+/execute @e[type=item_frame,score_facing=0,score_ltcharge_min=20,score_ltcharge=20] ~ ~ ~ /fill ~ ~ ~-1 ~ ~-1 ~-1 air 0 replace planks
+/execute @e[type=item_frame,score_facing_min=1,score_facing=1,score_ltcharge_min=20,score_ltcharge=20] ~ ~ ~ /fill ~1 ~ ~ ~1 ~-1 ~ air 0 replace planks
+/execute @e[type=item_frame,score_facing_min=2,score_facing=2,score_ltcharge_min=20,score_ltcharge=20] ~ ~ ~ /fill ~ ~ ~1 ~ ~-1 ~1 air 0 replace planks
+/execute @e[type=item_frame,score_facing_min=3,score_facing=3,score_ltcharge_min=20,score_ltcharge=20] ~ ~ ~ /fill ~-1 ~ ~-1 ~-1 ~-1 ~ air 0 replace planks
+
+  #destroy fences (barricades)
+/execute @e[type=item_frame,score_facing_min=3,score_facing=3,score_ltcharge_min=20,score_ltcharge=20] ~ ~ ~ /fill ~-1 ~ ~-1 ~-1 ~-1 ~ air 0 replace fence
+/execute @e[type=item_frame,score_facing_min=2,score_facing=2,score_ltcharge_min=20,score_ltcharge=20] ~ ~ ~ /fill ~ ~ ~1 ~ ~-1 ~1 air 0 replace fence
+/execute @e[type=item_frame,score_facing_min=1,score_facing=1,score_ltcharge_min=20,score_ltcharge=20] ~ ~ ~ /fill ~1 ~ ~ ~1 ~-1 ~ air 0 replace fence
+/execute @e[type=item_frame,score_facing=0,score_ltcharge_min=20,score_ltcharge=20] ~ ~ ~ /fill ~ ~ ~-1 ~ ~-1 ~-1 air 0 replace fence
